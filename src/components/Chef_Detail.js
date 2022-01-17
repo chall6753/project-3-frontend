@@ -4,7 +4,7 @@ import {useParams, useLocation, Link} from "react-router-dom"
 
 function Chef_Details(){
     const location=useLocation()
-    const {chef} = location.state
+    const chef = location.state
     const [recipes, setRecipes]=useState([])
 
     useEffect(() =>{
@@ -13,14 +13,16 @@ function Chef_Details(){
         .then(data => setRecipes(data))
         
       },[])
-console.log(recipes)
+
     return(
         <div>
             <div key={chef.id} className="box" >
-                <h2>{chef.first_name}</h2>
-                <p>{chef.last_name}</p>
+                <h2>{chef.first_name} {chef.last_name}</h2> 
+                <p>place image tag here</p>
             </div> 
             <div>
+                <h3>Bio:</h3>
+                <p>{chef.bio}</p>
                 <h2>{`${chef.first_name}'s Recipes`}</h2>
                 <ul>
                     {recipes.length >= 1 ? recipes.map(recipe => {

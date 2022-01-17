@@ -2,7 +2,9 @@ import React from "react";
 import {useParams, Link} from "react-router-dom"
 
 function Chef({chef}){
-console.log(useParams())
+console.log(chef)
+
+
     return(
         <Link 
         to={`/chefs/${chef.id}`}
@@ -10,7 +12,8 @@ console.log(useParams())
         >
             <div key={chef.id} className="box" >
                 <h2>{chef.first_name}</h2>
-                <p>{chef.last_name}</p>
+                <h3>{chef.last_name}</h3>
+                <p>insert image tag</p>
             </div> 
         </Link>
     );

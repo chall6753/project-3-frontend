@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom"
 
-function Recipe({recipe,chefs}){
+function Recipe({recipe, chefs}){
     let chef = chefs.filter(chef=> chef.id === recipe.chef_id)
-
+    console.log(chef)
     return(
         <div>
         <Link 
@@ -12,10 +12,9 @@ function Recipe({recipe,chefs}){
         >
             <div key={recipe.id}>
                 <h2 >{recipe.recipe_name}</h2>
-                
+                <h3>Chef: {chef.first_name}</h3>
             </div>
         </Link>
-        <h3>Chef: {chef[0].first_name}</h3>
         </div>
     );
 }
