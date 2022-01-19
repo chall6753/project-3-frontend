@@ -1,4 +1,5 @@
 import React, {useState,useEffect} from "react";
+import {Card, Container} from "react-bootstrap"
 import Recipe from "./Recipe.js"
 import Chef from "./Chef.js"
 
@@ -19,17 +20,17 @@ function Home({recipes, chefs}){
     if(randRecipe != undefined){
         
         return(
-            <div>
+            <Container>
                 <h1>The Recipe Community</h1>
                 <div>
-                    <h1>Recipe of the Day</h1>
+                    <h2>Recipe of the Day</h2>
                     <Recipe  chefs={chefs} recipe={randRecipe}/>
                 </div>
                 <div>
-                    <h1>Chef of the Day</h1>
+                    <h2>Chef of the Day</h2>
                     <Chef chef={chef}/>
                 </div>
-            </div>
+            </Container>
         );
     }else{return null}
     

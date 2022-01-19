@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react";
 import { Route, Routes } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./Home.js";
 import NavBar from "./NavBar.js"
 import Recipes from "./Recipes.js"
-import Recipe from "./Recipe.js";
 import ChefList from "./ChefList.js"
 import Chef_Detail from "./Chef_Detail.js"
 import Recipe_Detail from "./Recipe_Detail.js"
@@ -14,6 +14,8 @@ import LogInPage from "./LogInPage.js";
 function App() {
 const [chefs, setChefs]=useState([])
 const [recipes, setRecipes]=useState([])
+const [ingredients, setIngredients]=useState([])
+
 
 useEffect(() =>{
   fetch("http://localhost:9292/chefs")
@@ -22,8 +24,12 @@ useEffect(() =>{
   .then(()=>fetch("http://localhost:9292/recipes"))
   .then(res => res.json())
   .then(data=>setRecipes(data))
+  .then(()=>fetch("http://localhost:9292/ingredients"))
+  .then((res)=>res.json())
+  .then((data)=>setIngredients(data))
+  
 },[])
-console.log(recipes)
+
   return (
     <div className="main">
       <div className="sidenav">

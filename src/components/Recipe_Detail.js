@@ -15,9 +15,10 @@ function Recipe_Detail(){
     },[])
     
 
-    if (!Array.isArray(recipeIngredients)){console.log(recipeIngredients.chef.id)}
+    
     if (!Array.isArray(recipeIngredients)){
         let chef = recipeIngredients.chef
+        console.log(chef)
         return(
             <div>
                     <h2>{recipe.recipe_name}</h2>

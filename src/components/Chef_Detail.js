@@ -13,7 +13,7 @@ function Chef_Details(){
         .then(data => setRecipes(data))
         
       },[])
-
+console.log(chef)
     return(
         <div>
             <div key={chef.id} className="box" >
