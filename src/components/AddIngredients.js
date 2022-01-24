@@ -5,19 +5,19 @@ function AddIngredients(){
     const[ingredientName,setIngredientName]=useState('')
     const[quantity,setQuantity]=useState('')
     const[unit,setUnit]=useState('')
-    const[ingredients,setIngredients]=useState([])
+    const[recipeIngredients,setRecipeIngredients]=useState([])
     
-    console.log(ingredients)
+    
     function handleAddIngredient(e){
         e.preventDefault()
         let ingredient = {ingredient:ingredientName, quantity:quantity, unit: unit}
         console.log(ingredient)
         
-        let updatedIngredients = [...ingredients,ingredient]
+        let updatedIngredients = [...recipeIngredients,ingredient]
         console.log(updatedIngredients)
-        setIngredients(updatedIngredients)
+        setRecipeIngredients(updatedIngredients)
     }
-    console.log(ingredients)
+    
     return(
         <div>
             <form>
@@ -30,9 +30,9 @@ function AddIngredients(){
                 <button type="submit" onClick={handleAddIngredient}>Add Ingredient</button>
             </form>     
             <ul>
-                {ingredients.length>0 && 
-                ingredients.map((ingredient)=>{
-                    return <li key={ingredient.ingredient}>{ingredient.ingredient} {ingredient.quantity} {ingredient.unit}</li>
+                {recipeIngredients.length>0 && 
+                    recipeIngredients.map((ingredient)=>{
+                        return <li key={ingredient.ingredient}>{ingredient.ingredient} {ingredient.quantity} {ingredient.unit}</li>
                 }) 
             }
             </ul>

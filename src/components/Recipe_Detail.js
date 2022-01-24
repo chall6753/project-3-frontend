@@ -4,9 +4,9 @@ import Comment from "./Comment.js"
 
 function Recipe_Detail(){
     const location=useLocation()
-    const {recipe} = location.state //using destructuring 
-    
+    const {recipe} = location.state 
     const [recipeIngredients, setRecipeIngredients]=useState([])
+    
     useEffect(() =>{
         fetch(`http://localhost:9292/recipes/${recipe.id}`)
                 .then(res => res.json())
@@ -14,7 +14,7 @@ function Recipe_Detail(){
                 
     },[])
     
-
+    console.log(recipeIngredients)
     
     if (!Array.isArray(recipeIngredients)){
         let chef = recipeIngredients.chef

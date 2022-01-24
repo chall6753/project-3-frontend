@@ -10,7 +10,6 @@ function Recipe({recipe, chefs}){
             <Link 
             to={`/recipes/${recipe.id}`}
             state={{recipe,chefs}}
-            // className="link-secondary"
             >
                 <div key={recipe.id}>
                     <h3 >{recipe.recipe_name}</h3>

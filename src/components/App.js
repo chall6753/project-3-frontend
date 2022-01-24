@@ -43,7 +43,7 @@ useEffect(() =>{
            <Route exact path='/recipes/:id' element={<Recipe_Detail/>}/>
            <Route exact path='/chefs' element={<ChefList chefs={chefs}/>}/>
            <Route exact path='/chefs/:id' element={<Chef_Detail chefs={chefs}/>}/>
-           <Route exact path='/create_recipe' element={<CreateRecipe chefs={chefs}/>}/>
+           <Route exact path='/create_recipe' element={<CreateRecipe chefs={chefs} ingredients={ingredients}/>}/>
            <Route exact path='/login' element={<LogInPage/>}/>
         </Routes>
       </div>
