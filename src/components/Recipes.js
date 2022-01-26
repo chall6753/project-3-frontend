@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import Recipe from "./Recipe.js"
-import {Card} from "react-bootstrap"
 
 function Recipes({recipes,chefs}){
 const[filteredRecipes,setFilteredRecipes]=useState([])
@@ -8,14 +7,11 @@ const[filteredRecipes,setFilteredRecipes]=useState([])
     function filterRecipes(e){
         let searchedRecipe=e.target.value
         console.log(searchedRecipe)
-        if(searchedRecipe == ''){setFilteredRecipes(recipes)}else{//if no search text display all recipes
+        if(searchedRecipe === ''){setFilteredRecipes(recipes)}else{//if no search text display all recipes
           setFilteredRecipes(recipes.filter((recipe)=>{
-           return recipe.recipe_name.toLowerCase() == searchedRecipe.toLowerCase() //right now has to match whole word
+           return recipe.recipe_name.toLowerCase() === searchedRecipe.toLowerCase() //right now has to match whole word
         }))  
         }    
-    }
-    function filterRecipesByIngredient(e){
-        console.log(e)
     }
     useEffect(()=>{window.onload = setFilteredRecipes(recipes)},[])
     return(

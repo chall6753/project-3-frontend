@@ -11,9 +11,7 @@ function Chef_Details(){
         fetch(`http://localhost:9292/chefs/${chef.id}`)
         .then(res => res.json())
         .then(data => setRecipes(data))
-        
       },[])
-console.log(chef)
     return(
         <div>
             <div key={chef.id} className="box" >

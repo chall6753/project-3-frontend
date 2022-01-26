@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import { Card } from "react-bootstrap";
 
 function AddIngredients(){
     const[ingredientName,setIngredientName]=useState('')
@@ -7,17 +6,12 @@ function AddIngredients(){
     const[unit,setUnit]=useState('')
     const[recipeIngredients,setRecipeIngredients]=useState([])
     
-    
     function handleAddIngredient(e){
         e.preventDefault()
         let ingredient = {ingredient:ingredientName, quantity:quantity, unit: unit}
-        console.log(ingredient)
-        
         let updatedIngredients = [...recipeIngredients,ingredient]
-        console.log(updatedIngredients)
         setRecipeIngredients(updatedIngredients)
     }
-    
     return(
         <div>
             <form>
@@ -36,11 +30,7 @@ function AddIngredients(){
                 }) 
             }
             </ul>
-            
         </div>
-    
-        
     );
 }
-
 export default AddIngredients;

@@ -5,15 +5,12 @@ function AddIngredient({onAddIngredient}){
     const[quantity,setQuantity]=useState('')
     const[unit,setUnit]=useState('')
     
-    
     function handleSubmitRecipe(e){
         e.preventDefault()
         onAddIngredient(ingredientName, quantity, unit)
     }
-    
     return(
         <div>
-            
                 <label>Ingredient: </label>
                 <input type="text" onChange={(e)=>setIngredientName(e.target.value)}></input>
                 <label>Quantity:</label>

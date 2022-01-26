@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import {Card} from 'react-bootstrap'
 import AddIngredient from "./AddIngredient.js";
 
 function CreateRecipe({chefs}){
@@ -32,8 +31,6 @@ function CreateRecipe({chefs}){
         .then((r)=>r.json())
         .then((res) => window.alert(res));
         }
-    
-console.log(chefId)
     return(
         <div>
             <h1>Create New Recipe</h1>
@@ -42,9 +39,8 @@ console.log(chefId)
                 <select name='chef' onChange={(e)=>setChefId(e.target.value)} placeholder='chef name'>
                     <option value={null}>Select Chef</option>
                     {chefs.map(chef=>{
-                       return <option value={chef.id}>{chef.first_name}</option>
-                    })}
-                    
+                       return <option key={chef.id} value={chef.id}>{chef.first_name}</option>
+                    })}  
                 </select>
                 <label>Recipe Name</label>
                 <input type="text" onChange={(e)=>setRecipeName(e.target.value)}></input>
@@ -62,9 +58,8 @@ console.log(chefId)
                 <label>Cooking Instructions: </label>
                 <textarea type='paragraph_text' cols='80' onChange={(e)=>setInstructions(e.target.value)}></textarea>
             </form>  
-            <button type='submit' onClick={handleSubmitRecipe}>Submit Recipe</button>          
+            <button type='submit' onClick={handleSubmitRecipe}>Submit Recipe</button>
         </div>
     );
 }
-
 export default CreateRecipe;
