@@ -20,7 +20,6 @@ const[filteredRecipes,setFilteredRecipes]=useState([])
             <h1>Find a Recipe</h1>
             <form>
                 <input type="text" onChange={filterRecipes} placeholder="search by recipe"></input>
-                {/* <input type="text" onChange={filterRecipesByIngredient} placeholder="search by ingredient"></input> */}
             </form>
             {filteredRecipes.map((recipe) =>{
                 return <Recipe recipe={recipe} chefs={chefs}/>
