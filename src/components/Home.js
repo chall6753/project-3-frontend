@@ -1,7 +1,7 @@
 import React from "react";
 import {Container} from "react-bootstrap"
 import Recipe from "./Recipe.js"
-import Chef from "./Chef.js"
+
 
 function Home({recipes, chefs}){  
     function getRandomInt(min, max) {
@@ -19,12 +19,9 @@ function Home({recipes, chefs}){
                 <h1>The Social Chef</h1>
                 <div>
                     <h2>Recipe of the Day</h2>
-                    <Recipe  chefs={chefs} recipe={randRecipe}/>
+                    <Recipe  chef={chef} recipe={randRecipe}/>
                 </div>
-                <div>
-                    <h2>Chef of the Day</h2>
-                    <Chef chef={chef}/>
-                </div>
+                
             </Container>
         );
     }else{return null} 
