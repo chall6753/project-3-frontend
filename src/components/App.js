@@ -4,18 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./Home.js";
 import NavBar from "./NavBar.js"
 import Recipes from "./Recipes.js"
-import ChefList from "./ChefList.js"
-import Chef_Detail from "./Chef_Detail.js"
-import Recipe_Detail from "./Recipe_Detail.js"
-import CreateRecipe from './CreateRecipe.js'
-import LogInPage from "./LogInPage.js";
-
+import RecipeDetail from "./RecipeDetail.js"
+import Chefs from './Chefs.js'
+import ChefDetail from './ChefDetail.js'
+import RecipeCreate from './RecipeCreate.js'
 
 function App() {
 const [chefs, setChefs]=useState([])
 const [recipes, setRecipes]=useState([])
-const [ingredients, setIngredients]=useState([])
-
 
 useEffect(() =>{
   fetch("http://localhost:9292/chefs")
@@ -24,12 +20,8 @@ useEffect(() =>{
   .then(()=>fetch("http://localhost:9292/recipes"))
   .then(res => res.json())
   .then(data=>setRecipes(data))
-  .then(()=>fetch("http://localhost:9292/ingredients"))
-  .then((res)=>res.json())
-  .then((data)=>setIngredients(data))
-  
 },[])
-
+console.log(recipes)
   return (
     <div className="main">
       <div className="sidenav">
@@ -40,11 +32,11 @@ useEffect(() =>{
         <Routes>
            <Route exact path='/' element={<Home recipes={recipes} chefs={chefs}/>}/>
            <Route exact path='/recipes' element={<Recipes recipes={recipes} chefs={chefs}/>}/>
-           <Route exact path='/recipes/:id' element={<Recipe_Detail/>}/>
-           <Route exact path='/chefs' element={<ChefList chefs={chefs}/>}/>
-           <Route exact path='/chefs/:id' element={<Chef_Detail chefs={chefs}/>}/>
-           <Route exact path='/create_recipe' element={<CreateRecipe chefs={chefs} ingredients={ingredients}/>}/>
-           <Route exact path='/login' element={<LogInPage/>}/>
+           <Route exact path='/recipes/:id' element={<RecipeDetail/>}/>
+           <Route exact path= '/chefs' element={<Chefs chefs={chefs}/>}/>
+           <Route exact path='/chefs/:id' element={<ChefDetail/>}/>
+           <Route exact path='/create_recipe' element={<RecipeCreate/>}/>
+         
         </Routes>
       </div>
       
