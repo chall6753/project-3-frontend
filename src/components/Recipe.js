@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import {Link} from "react-router-dom"
 import {Card} from "react-bootstrap"
 
-function Recipe({recipe, chef}){
-    
+function Recipe({recipe}){
+    console.log(recipe)
     
     return(
         <Card>
@@ -11,7 +11,7 @@ function Recipe({recipe, chef}){
                 <h2>{recipe.name}</h2>
             </Link>
             
-            <h3>{chef.first_name}</h3>
+            <h3>{recipe.user.first_name}</h3>
         </Card>
     );
 }
