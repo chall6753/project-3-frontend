@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from "react";
-import {Link, useLocation, useParams} from "react-router-dom"
+import {useNavigate, useParams} from "react-router-dom"
 
 
-function RecipeDetail(){
+function RecipeDetail({deleteRecipe}){
     const [recipe, setRecipe]=useState('')
+    const navigate = useNavigate()
    
 let recipe_id = useParams().id
     useEffect(()=>{
@@ -11,12 +12,16 @@ let recipe_id = useParams().id
         .then((res)=>res.json())
         .then((data)=>setRecipe(data))
     },[])
-   function deleteRecipe(){
+   function handleRecipeDelete(){
     fetch(`http://localhost:9292/recipes/${recipe_id}/delete_recipe`,{
         method: 'DELETE',
     })
     .then((res)=>res.json())
-    .then((res)=>console.log(res))
+    .then((data)=>{
+        deleteRecipe(data)
+        navigate('/recipes')
+    })
+    
    }
    console.log(recipe)
    if (recipe !=''){
@@ -43,7 +48,7 @@ let recipe_id = useParams().id
                 <p>{recipe.instructions}</p>
                 <h3>Comments</h3>
                 
-                <button type='button' onClick={deleteRecipe}>Delete</button>
+                <button type='button' onClick={handleRecipeDelete}>Delete</button>
         </div>
     )
    }else return (<p>loading...</p>)
