@@ -1,19 +1,21 @@
 import React, {useEffect, useState} from "react";
 import Recipe from "./Recipe.js"
 
-function Recipes({recipes,chefs}){
-const[filteredRecipes,setFilteredRecipes]=useState([])
-    
+function Recipes({recipes}){
+const[filteredRecipes,setFilteredRecipes]=useState(recipes)
+console.log(recipes)
+
     function filterRecipes(e){
+        console.log(e)
         let searchedRecipe=e.target.value
         console.log(searchedRecipe)
         if(searchedRecipe === ''){setFilteredRecipes(recipes)}else{//if no search text display all recipes
           setFilteredRecipes(recipes.filter((recipe)=>{
-           return recipe.recipe_name.toLowerCase() === searchedRecipe.toLowerCase() //right now has to match whole word
+           return recipe.name.toLowerCase() === searchedRecipe.toLowerCase() //right now has to match whole word
         }))  
         }    
     }
-    useEffect(()=>{window.onload = setFilteredRecipes(recipes)},[])
+    // useEffect(()=>{window.onload = setFilteredRecipes(recipes)},[])
     return(
         <div>
 
@@ -22,7 +24,9 @@ const[filteredRecipes,setFilteredRecipes]=useState([])
                 <input type="text" onChange={filterRecipes} placeholder="search by recipe"></input>
             </form>
             {filteredRecipes.map((recipe) =>{
-                return <Recipe recipe={recipe} chefs={chefs}/>
+                
+                console.log(recipe)
+                return <Recipe recipe={recipe}/>
             })}
 
         </div>
