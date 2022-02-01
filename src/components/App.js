@@ -10,13 +10,13 @@ import ChefDetail from './ChefDetail.js'
 import RecipeCreate from './RecipeCreate.js'
 
 function App() {
-  const [chefs, setChefs]=useState([])
+  const [users, setUsers]=useState([])
   const [recipes, setRecipes]=useState([])
 
   useEffect(() =>{
     fetch("http://localhost:9292/chefs")
     .then(res => res.json())
-    .then(data => setChefs(data))
+    .then(data => setUsers(data))
     .then(()=>fetch("http://localhost:9292/recipes"))
     .then(res => res.json())
     .then(data=>setRecipes(data))
@@ -34,10 +34,10 @@ function App() {
       
       <div className="body"> 
         <Routes>
-           <Route exact path='/' element={<Home recipes={recipes} chefs={chefs}/>}/>
+           <Route exact path='/' element={<Home recipes={recipes} users={users}/>}/>
            <Route exact path='/recipes' element={<Recipes recipes={recipes}/>}/>
            <Route exact path='/recipes/:id' element={<RecipeDetail deleteRecipe={deleteRecipe}/>}/>
-           <Route exact path= '/chefs' element={<Chefs chefs={chefs}/>}/>
+           <Route exact path= '/chefs' element={<Chefs users={users}/>}/>
            <Route exact path='/chefs/:id' element={<ChefDetail/>}/>
            <Route exact path='/create_recipe' element={<RecipeCreate/>}/>
          

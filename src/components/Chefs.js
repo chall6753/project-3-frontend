@@ -2,13 +2,13 @@ import React from 'react';
 import {Container} from "react-bootstrap"
 import Chef from "./Chef.js"
 
-function Chefs({chefs}){
-console.log(chefs)
+function Chefs({users}){
+console.log(users)
     return (
         <Container>
             <h1>Chefs</h1>
-            {chefs.map((chef)=>{
-                return <Chef chef={chef}/>
+            {users.map((user)=>{
+                return <Chef user={user}/>
             })}
         </Container>
     )

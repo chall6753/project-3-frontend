@@ -11,7 +11,7 @@ function Recipe({recipe}){
                 <h2>{recipe.name}</h2>
             </Link>
             
-            <h3>{recipe.user.first_name}</h3>
+            <h3>By: {recipe.user.first_name}</h3>
         </Card>
     );
 }

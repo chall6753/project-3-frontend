@@ -3,12 +3,12 @@ import {Link} from 'react-router-dom'
 import {Card} from 'react-bootstrap'
 
 
-function Chef({chef}){
-console.log(chef)
+function Chef({user}){
+console.log(user) 
     return(
         <Card>
-            <Link to = {`/chefs/${chef.id}`}>
-                <h2>{chef.first_name + " " +chef.last_name}</h2>
+            <Link to = {`/chefs/${user.id}`}>
+                <h2>{user.username}</h2>
             </Link>
             
         </Card>
