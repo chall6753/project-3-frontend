@@ -24,7 +24,7 @@ function RecipeCreate({handleCreateRecipe}){
         })
         .then((r)=>r.json())
         .then((recipe) => handleCreateRecipe(recipe))
-        // .then((res)=>console.log(res))
+        
         }
     
         function addIngredient(ingredientName,quantity,unit){
@@ -32,7 +32,7 @@ function RecipeCreate({handleCreateRecipe}){
             let updatedIngredients = [...recipeIngredients,ingredient]
             setRecipeIngredients(updatedIngredients)
         }
-    
+        
     return (
         <Container>
             

@@ -30,8 +30,11 @@ function App() {
   function handleCreateRecipe(recipe){
     console.log(recipes)
     console.log(recipe)
-    
+        if (users.find(user=> user.username !== recipe.user.username) !== undefined){ // checks to see if it is a new user or not. backend already handles no duplicate usernames being inserted into database this one is just to update state before a refresh
+          setUsers([...users, recipe.user])
+        }
     setRecipes([...recipes, recipe])
+    
     navigate('/recipes')
     
   }
