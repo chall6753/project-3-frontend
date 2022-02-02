@@ -4,7 +4,7 @@ import {Container, Card} from 'react-bootstrap'
 
 
 function ChefDetail(){
-    const chefPlaceholder = {id: 1, username:'', first_name: '', last_name: '', recipes: [{id:1,name:'',instructions:''}], comments: [{}] }
+    const chefPlaceholder = {id: 1, username:'', recipes: [{id:1,name:'',instructions:''}] }
     const [chef,setChef]=useState(chefPlaceholder)
     let chefId = useParams().id
     console.log(chefId)
@@ -17,8 +17,9 @@ function ChefDetail(){
     
         return (
         <Container>
-            <h1>{chef.first_name + ' ' + chef.last_name}</h1>
+            <h1>{chef.username}</h1>
             {chef.recipes.map((recipe)=>{
+                console.log(recipe.id)
                 return (
                     <Card>
                         <Link to= {`/recipes/${recipe.id}`}>
