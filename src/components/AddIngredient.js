@@ -1,14 +1,14 @@
 import React, {useState} from "react";
 
-function AddIngredient({onAddIngredient}){
+function AddIngredient({addIngredient}){
     const[ingredientName,setIngredientName]=useState('')
     const[quantity,setQuantity]=useState('')
     const[unit,setUnit]=useState('')
     
     
-    function handleSubmitRecipe(e){
+    function handleAddIngredient(e){
         e.preventDefault()
-        onAddIngredient(ingredientName, quantity, unit)
+        addIngredient(ingredientName, quantity, unit)
     }
     
     return(
@@ -20,7 +20,7 @@ function AddIngredient({onAddIngredient}){
                 <input type="text" onChange={(e)=>setQuantity(e.target.value)}></input>
                 <label>Unit:</label>
                 <input type='text' onChange={(e)=>setUnit(e.target.value)}></input>
-                <button type="submit" onClick={handleSubmitRecipe}>Add Ingredient</button>
+                <button type="submit" onClick={handleAddIngredient}>Add Ingredient</button>
                 
         </div>
     );

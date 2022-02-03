@@ -10,8 +10,8 @@ function NavBar(){
         </NavLink>
         <NavLink to="/recipes" exact="true">Recipes</NavLink>
         <NavLink to="/chefs" exact="true">Chefs</NavLink>
-        <NavLink to="/create_recipe" exact="true">Create Recipe</NavLink>
-        <NavLink to="/login" exact="true">Log In</NavLink> 
+        <NavLink to='/create_recipe' exact='true'>Create New Recipe</NavLink>
+       
            
          
     </div>
