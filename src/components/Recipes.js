@@ -2,8 +2,7 @@ import React, {useEffect, useState} from "react";
 import Recipe from "./Recipe.js"
 
 function Recipes({recipes}){
-const[filteredRecipes,setFilteredRecipes]=useState(recipes)
-console.log(recipes)
+    const[filteredRecipes,setFilteredRecipes]=useState(recipes)
 
     function filterRecipes(e){
         console.log(e)
@@ -15,7 +14,6 @@ console.log(recipes)
         }))  
         }    
     }
-    // useEffect(()=>{window.onload = setFilteredRecipes(recipes)},[])
     return(
         <div>
 
@@ -24,15 +22,9 @@ console.log(recipes)
                 <input type="text" onChange={filterRecipes} placeholder="search by recipe"></input>
             </form>
             {filteredRecipes.map((recipe) =>{
-                
-                console.log(recipe)
                 return <Recipe recipe={recipe}/>
             })}
-
         </div>
-        
-        
     );
 }
-
 export default Recipes;
