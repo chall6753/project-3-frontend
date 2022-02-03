@@ -18,6 +18,7 @@ function ChefDetail(){
         return (
         <Container>
             <h1>{chef.username}</h1>
+            <h2>Recipes:</h2>
             {chef.recipes.map((recipe)=>{
                 console.log(recipe.id)
                 return (
