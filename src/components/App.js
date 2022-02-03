@@ -28,9 +28,12 @@ function App() {
     setRecipes(recipes.filter(r => r.id !== recipe.id))
   }
   function handleCreateRecipe(recipe){
-    console.log(recipes)
-    console.log(recipe)
-        if (users.find(user=> user.username !== recipe.user.username) !== undefined){ // checks to see if it is a new user or not. backend already handles no duplicate usernames being inserted into database this one is just to update state before a refresh
+    console.log(users)
+    console.log(recipe.user.username)
+    let x = users.find(user=> user.username === recipe.user.username) 
+    console.log(x)
+    if (x == undefined){ // checks to see if it is a new user or not. backend already handles no duplicate usernames being inserted into database this one is just to update state before a refresh
+          console.log('yeet')
           setUsers([...users, recipe.user])
         }
     setRecipes([...recipes, recipe])
