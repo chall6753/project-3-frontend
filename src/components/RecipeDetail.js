@@ -33,8 +33,8 @@ console.log(recipe_id)
                 <h3>By: {recipe.user.username} </h3>
                 <h3>Ingredients</h3>
                     <ul>
-                        {recipe.ingredients.map((ingredient)=>{
-                            return <li key={ingredient.id}>{ingredient.name}</li>
+                        {recipe.recipe_ingredients.map((ingredient)=>{
+                            return <li key={ingredient.id}>{ingredient.quantity + ' ' + ingredient.unit + ' ' + ingredient.ingredient.name}</li>
                         })}
                     </ul>
                 <h3>Cooking Instructions</h3>
