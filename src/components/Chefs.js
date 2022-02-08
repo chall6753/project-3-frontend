@@ -3,7 +3,6 @@ import {Container} from "react-bootstrap"
 import Chef from "./Chef.js"
 
 function Chefs({users}){
-console.log(users)
     return (
         <Container>
             <h1>Chefs</h1>

@@ -12,6 +12,7 @@ import RecipeCreate from './RecipeCreate.js'
 function App() {
   const [users, setUsers]=useState([])
   const [recipes, setRecipes]=useState([])
+  const navigate = useNavigate()
 
   useEffect(() =>{
     fetch("http://localhost:9292/users")
@@ -21,28 +22,20 @@ function App() {
     .then(res => res.json())
     .then(data=>setRecipes(data))
   },[])
-  const navigate = useNavigate()
-  console.log(recipes)
+  
   function deleteRecipe(recipe){
-    console.log('recipe from recipeDetail to be deleted', recipe)
     setRecipes(recipes.filter(r => r.id !== recipe.id))
   }
+
   function handleCreateRecipe(recipe){
-    console.log(users)
-    console.log(recipe.user.username)
-    let x = users.find(user=> user.username === recipe.user.username) 
-    console.log(x)
-    if (x == undefined){ // checks to see if it is a new user or not. backend already handles no duplicate usernames being inserted into database this one is just to update state before a refresh
-          console.log('yeet')
+    let user = users.find(user=> user.username === recipe.user.username) 
+    if (user == undefined){ // checks to see if it is a new user or not. backend already handles no duplicate usernames being inserted into database this one is just to update state before a refresh
           setUsers([...users, recipe.user])
         }
     setRecipes([...recipes, recipe])
-    
     navigate('/recipes')
-    
   }
   
-  console.log(recipes)
   return (
     <div className="main">
       <div className="sidenav">

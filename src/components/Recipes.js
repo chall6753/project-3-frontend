@@ -5,9 +5,7 @@ function Recipes({recipes}){
     const[filteredRecipes,setFilteredRecipes]=useState(recipes)
 
     function filterRecipes(e){
-        console.log(e)
         let searchedRecipe=e.target.value
-        console.log(searchedRecipe)
         if(searchedRecipe === ''){setFilteredRecipes(recipes)}else{//if no search text display all recipes
           setFilteredRecipes(recipes.filter((recipe)=>{
            return recipe.name.toLowerCase() === searchedRecipe.toLowerCase() //right now has to match whole word

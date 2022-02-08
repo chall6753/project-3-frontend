@@ -5,27 +5,26 @@ import {useNavigate, useParams} from "react-router-dom"
 function RecipeDetail({deleteRecipe}){
     const [recipe, setRecipe]=useState('')
     const navigate = useNavigate()
-   
-let recipe_id = parseInt(useParams().id)
-console.log(recipe_id)
+    let recipe_id = parseInt(useParams().id)
+
     useEffect(()=>{
         fetch(`http://localhost:9292/recipes/${recipe_id}`)
         .then((res)=>res.json())
         .then((data)=>setRecipe(data))
         
     },[])
-   function handleRecipeDelete(){
-    fetch(`http://localhost:9292/recipes/${recipe_id}/delete_recipe`,{
-        method: 'DELETE',
-    })
-    .then((res)=>res.json())
-    .then((data)=>{
-        deleteRecipe(data)
-        navigate('/recipes')
-    })
-    
+
+    function handleRecipeDelete(){
+        fetch(`http://localhost:9292/recipes/${recipe_id}/delete_recipe`,{
+            method: 'DELETE',
+        })
+        .then((res)=>res.json())
+        .then((data)=>{
+            deleteRecipe(data)
+            navigate('/recipes')
+        })
    }
-   console.log(recipe)
+
    if (recipe !=''){
     return(
         <div >
